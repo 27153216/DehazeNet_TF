@@ -1,0 +1,9 @@
+img_path = "D:/User/Desktop/雜物/_程式/_IMG/RESIDE-standard/ITS/hazy/25_9_0.70075.png"
+srcimg = load_and_preprocess_image(img_path)
+srcimg = np.expand_dims(srcimg, axis=0)
+
+cv.imshow("t", model.predict(srcimg)[0])
+test = cv.cvtColor((srcimg[0]-0.8)/model.predict(srcimg)[0] +0.8, cv.COLOR_RGB2BGR)
+cv.imshow("test", test)
+cv.waitKey(0)
+cv.destroyAllWindows()
